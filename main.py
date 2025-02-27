@@ -13,15 +13,28 @@
 # ⿢ Tum loops (for/while) aur modulus operator (%) ka use kar sakte ho.
 # ⿣ Edge Cases: 1 aur negative numbers prime nahi hote!
 
-user_input = int(input("Enter a number:") ) #user input
-#conditons
-if  user_input < 0: # ager number mynus hu to 
-   print("You can not enter negative number.") # print
-elif user_input == 1: # ager number 1 hu to
-   print("1 is neither even nor odd. ") # print
+# Function to check if the number is prime
+def is_prime(number):
+    # Edge case: 1 and negative numbers are not prime
+    if number <= 1:
+        return False
     
-elif user_input % 2 ==0: # ager number 2 sy devide krny k bad 0 ay to
-    print(f"{user_input} is even number.") #print even
-else: #werna
-  print(f"{user_input} is odd number.")  #print odd
+    # Check divisibility from 2 to square root of the number
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    
+    # If no divisors are found, the number is prime
+    return True
+
+# Taking input from the user
+num = int(input("Enter a number: "))
+
+# Checking if the number is prime or not
+if is_prime(num):
+    print(f"Yes, {num} is a prime number!")
+else:
+    print(f"No, {num} is not a prime number!")
+
+
 
